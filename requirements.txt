@@ -3,3 +3,7 @@ duckduckgo-search
 langchain-community
 
 ddgs
+
+langchain_ollama
+
+langchain_openai
