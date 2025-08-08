@@ -29,7 +29,7 @@ class CoverLetterState(TypedDict):
 
 # === LLM Setup ===
 #llm = ChatOllama(model="llama3.2:latest")
-llm = ChatOpenAI(api_key="")
+llm = ChatOpenAI()
 
 # === Prompt Templates ===
 professionalism_prompt = PromptTemplate(
