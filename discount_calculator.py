@@ -42,10 +42,15 @@ graph.add_node("apply_discount", apply_discount)
 graph.add_node("no_discount", no_discount)
 
 graph.add_edge(START, "check_eligibility")
+
+
 graph.add_conditional_edges("check_eligibility", route_discount, {
     "apply_discount": "apply_discount",
     "no_discount": "no_discount"
 })
+
+
+
 graph.add_edge("apply_discount", END)
 graph.add_edge("no_discount", END)
 
