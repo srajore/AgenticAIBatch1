@@ -37,9 +37,11 @@ def route_discount(state: DiscountState) -> str:
     return "apply_discount" if rate > 0 else "no_discount"
 
 graph = StateGraph(DiscountState)
-graph.add_node("check_eligibility", check_eligibility)
 graph.add_node("apply_discount", apply_discount)
+graph.add_node("check_eligibility", check_eligibility)
 graph.add_node("no_discount", no_discount)
+
+
 
 graph.add_edge(START, "check_eligibility")
 
@@ -52,16 +54,16 @@ graph.add_conditional_edges("check_eligibility", route_discount, {
 
 
 graph.add_edge("apply_discount", END)
-graph.add_edge("no_discount", END)
+#graph.add_edge("no_discount", END)
 
 workflow = graph.compile()
 
 # Test cases
-initial_state = {"total": 120.0}  # 20% discount
-print(workflow.invoke(initial_state))
+#initial_state = {"total": 120.0}  # 20% discount
+#print(workflow.invoke(initial_state))
 
-initial_state = {"total": 75.0}  # 10% discount
-print(workflow.invoke(initial_state))
+#initial_state = {"total": 75.0}  # 10% discount
+#print(workflow.invoke(initial_state))
 
 initial_state = {"total": 30.0}  # No discount
 print(workflow.invoke(initial_state))
