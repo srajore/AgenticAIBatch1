@@ -13,3 +13,5 @@ langgraph
 pydantic
 
 python-dotenv
+
+streamlit
