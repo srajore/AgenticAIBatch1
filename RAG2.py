@@ -40,7 +40,9 @@ def agent_node(state: AgentState) -> AgentState:
 # Define the LangGraph workflow
 workflow = StateGraph(AgentState)
 workflow.add_node("agent", agent_node)
+
 workflow.set_entry_point("agent")
+
 workflow.add_edge("agent", END)
 
 # Compile the graph
